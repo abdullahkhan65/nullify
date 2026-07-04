@@ -10,13 +10,22 @@ export default async function DashboardLayout({
   await requireSession();
 
   return (
-    <div className="flex flex-1 flex-col bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50">
-      <header className="border-b border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950">
+    <div className="flex flex-1 flex-col bg-[#0c0f14] text-zinc-100">
+      <div className="safety-stripes h-1 w-full" />
+      <header className="border-b border-[#2a3038] bg-[#0c0f14]">
         <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-4">
-          <Link href="/dashboard" className="text-lg font-bold tracking-tight">
+          <Link href="/dashboard" className="flex items-center gap-2 text-lg font-bold tracking-tight">
+            <span className="flex h-7 w-7 items-center justify-center rounded bg-orange-500 font-mono text-sm font-black text-black">
+              N
+            </span>
             Nullify
           </Link>
-          <SignOutButton />
+          <div className="flex items-center gap-5 text-sm">
+            <span className="hidden font-mono text-xs uppercase tracking-wider text-zinc-600 sm:block">
+              Dashboard
+            </span>
+            <SignOutButton />
+          </div>
         </div>
       </header>
       <main className="mx-auto w-full max-w-5xl flex-1 px-6 py-8">{children}</main>

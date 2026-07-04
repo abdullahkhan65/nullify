@@ -32,75 +32,75 @@ export function AuthForm({ mode }: { mode: "sign-in" | "sign-up" }) {
   }
 
   const inputClass =
-    "w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 text-sm outline-none focus:border-zinc-500 dark:border-zinc-700 dark:bg-zinc-900";
+    "w-full rounded-lg border border-[#2a3038] bg-[#0c0f14] px-3 py-2.5 text-sm text-zinc-100 placeholder:text-zinc-500 outline-none focus:border-orange-500/60";
 
   return (
-    <div className="flex flex-1 flex-col items-center justify-center px-6 py-16">
-      <div className="w-full max-w-sm">
-        <Link href="/" className="text-lg font-bold tracking-tight">
-          Nullify
-        </Link>
-        <h1 className="mt-6 text-2xl font-semibold">
-          {mode === "sign-up" ? "Create your account" : "Welcome back"}
-        </h1>
-        <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-4">
-          {mode === "sign-up" && (
-            <input
-              className={inputClass}
-              placeholder="Your name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-          )}
+    <div className="w-full max-w-sm rounded-2xl border border-[#2a3038] bg-[#10141a] p-8">
+      <h1 className="text-2xl font-black tracking-tight">
+        {mode === "sign-up" ? "Create your account" : "Welcome back"}
+      </h1>
+      <p className="mt-1 text-sm text-zinc-500">
+        {mode === "sign-up"
+          ? "14 days free. Cancel in two clicks."
+          : "Your inbox is waiting."}
+      </p>
+      <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-4">
+        {mode === "sign-up" && (
           <input
             className={inputClass}
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Your name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             required
           />
-          <input
-            className={inputClass}
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            minLength={8}
-            required
-          />
-          {error && <p className="text-sm text-red-600">{error}</p>}
-          <button
-            type="submit"
-            disabled={loading}
-            className="rounded-lg bg-zinc-900 px-4 py-2 font-medium text-white hover:bg-zinc-700 disabled:opacity-50 dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-zinc-300"
-          >
-            {loading
-              ? "One moment…"
-              : mode === "sign-up"
-                ? "Start free trial"
-                : "Sign in"}
-          </button>
-        </form>
-        <p className="mt-4 text-sm text-zinc-500">
-          {mode === "sign-up" ? (
-            <>
-              Already have an account?{" "}
-              <Link href="/sign-in" className="underline">
-                Sign in
-              </Link>
-            </>
-          ) : (
-            <>
-              New here?{" "}
-              <Link href="/sign-up" className="underline">
-                Create an account
-              </Link>
-            </>
-          )}
-        </p>
-      </div>
+        )}
+        <input
+          className={inputClass}
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <input
+          className={inputClass}
+          type="password"
+          placeholder="Password (8+ characters)"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          minLength={8}
+          required
+        />
+        {error && <p className="text-sm text-red-400">{error}</p>}
+        <button
+          type="submit"
+          disabled={loading}
+          className="rounded-lg bg-orange-500 px-4 py-2.5 font-semibold text-black hover:bg-orange-400 disabled:opacity-50"
+        >
+          {loading
+            ? "One moment…"
+            : mode === "sign-up"
+              ? "Start free trial"
+              : "Sign in"}
+        </button>
+      </form>
+      <p className="mt-4 text-sm text-zinc-500">
+        {mode === "sign-up" ? (
+          <>
+            Already have an account?{" "}
+            <Link href="/sign-in" className="text-orange-400 underline underline-offset-4">
+              Sign in
+            </Link>
+          </>
+        ) : (
+          <>
+            New here?{" "}
+            <Link href="/sign-up" className="text-orange-400 underline underline-offset-4">
+              Create an account
+            </Link>
+          </>
+        )}
+      </p>
     </div>
   );
 }
