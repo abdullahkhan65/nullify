@@ -47,13 +47,13 @@ export function Faq() {
       {FAQS.map((item) => (
         <details
           key={item.q}
-          className="group rounded-xl border border-zinc-200 bg-white px-5 py-4 open:pb-5 dark:border-zinc-800 dark:bg-zinc-900"
+          className="group rounded-xl border border-[#2a3038] bg-[#10141a] px-5 py-4 open:border-orange-500/30 open:pb-5"
         >
-          <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-semibold [&::-webkit-details-marker]:hidden">
+          <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-semibold text-zinc-200 [&::-webkit-details-marker]:hidden">
             {item.q}
-            <span className="text-zinc-400 transition-transform group-open:rotate-45">＋</span>
+            <span className="text-orange-500 transition-transform group-open:rotate-45">＋</span>
           </summary>
-          <p className="mt-3 text-sm leading-6 text-zinc-600 dark:text-zinc-400">{item.a}</p>
+          <p className="mt-3 text-sm leading-6 text-zinc-400">{item.a}</p>
         </details>
       ))}
     </div>

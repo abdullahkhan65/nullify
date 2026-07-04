@@ -19,17 +19,19 @@ export function RoiCalculator() {
   const recovered = recoveredJobs * jobValue;
   const roi = Math.round(recovered / 49);
 
-  const sliderClass = "w-full accent-emerald-600";
+  const sliderClass = "w-full accent-orange-500";
 
   return (
-    <div className="grid gap-10 rounded-2xl border border-zinc-200 bg-white p-8 sm:grid-cols-2 dark:border-zinc-800 dark:bg-zinc-900">
+    <div className="grid gap-10 rounded-2xl border border-[#2a3038] bg-[#10141a] p-8 sm:grid-cols-2">
       <div className="flex flex-col gap-8">
         <div>
           <div className="flex items-baseline justify-between">
-            <label htmlFor="missed" className="text-sm font-medium">
+            <label htmlFor="missed" className="text-sm font-medium text-zinc-300">
               Calls you miss per week
             </label>
-            <span className="text-2xl font-semibold tabular-nums">{missedPerWeek}</span>
+            <span className="font-mono text-2xl font-bold text-zinc-100 tabular-nums">
+              {missedPerWeek}
+            </span>
           </div>
           <input
             id="missed"
@@ -46,10 +48,12 @@ export function RoiCalculator() {
         </div>
         <div>
           <div className="flex items-baseline justify-between">
-            <label htmlFor="jobvalue" className="text-sm font-medium">
+            <label htmlFor="jobvalue" className="text-sm font-medium text-zinc-300">
               Your average job value
             </label>
-            <span className="text-2xl font-semibold tabular-nums">{fmt(jobValue)}</span>
+            <span className="font-mono text-2xl font-bold text-zinc-100 tabular-nums">
+              {fmt(jobValue)}
+            </span>
           </div>
           <input
             id="jobvalue"
@@ -67,26 +71,28 @@ export function RoiCalculator() {
         </div>
       </div>
 
-      <div className="flex flex-col justify-center gap-4 rounded-xl bg-zinc-50 p-6 dark:bg-zinc-950">
+      <div className="flex flex-col justify-center gap-4 rounded-xl border border-orange-500/25 bg-gradient-to-br from-[#161b22] to-[#1a1510] p-6">
         <div>
-          <p className="text-sm text-zinc-500">
+          <p className="text-sm text-zinc-400">
             Revenue that rang your phone and hung up, every month
           </p>
-          <p className="mt-1 text-4xl font-bold tabular-nums text-red-600 dark:text-red-400">
+          <p className="mt-1 font-mono text-4xl font-bold tabular-nums text-red-400">
             {fmt(atRisk)}
           </p>
         </div>
-        <div className="border-t border-zinc-200 pt-4 dark:border-zinc-800">
-          <p className="text-sm text-zinc-500">
-            If Nullify wins back just <strong>1 in 10</strong> of those callers
+        <div className="border-t border-[#2a3038] pt-4">
+          <p className="text-sm text-zinc-400">
+            If Nullify wins back just <strong className="text-zinc-200">1 in 10</strong> of
+            those callers
           </p>
-          <p className="mt-1 text-3xl font-bold tabular-nums text-emerald-600 dark:text-emerald-400">
+          <p className="mt-1 font-mono text-3xl font-bold tabular-nums text-emerald-400">
             +{fmt(recovered)}/mo
           </p>
-          <p className="mt-2 text-sm text-zinc-500">
+          <p className="mt-2 text-sm text-zinc-400">
             That&apos;s {recoveredJobs} extra {recoveredJobs === 1 ? "job" : "jobs"} a month —{" "}
-            <strong>{roi}×</strong> what Nullify costs. If it doesn&apos;t pay for
-            itself, cancel in two clicks.
+            <strong className="text-orange-400">{roi}×</strong>{" "}
+            what Nullify costs. If it doesn&apos;t pay for itself, cancel in two
+            clicks.
           </p>
         </div>
       </div>
