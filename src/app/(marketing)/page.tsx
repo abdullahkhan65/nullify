@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { DemoSection } from "@/components/marketing/demo-section";
 import { Faq } from "@/components/marketing/faq";
 import { OwnerInboxMock } from "@/components/marketing/owner-inbox-mock";
 import { PhoneDemo } from "@/components/marketing/phone-demo";
@@ -197,6 +198,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Demo reel: motion graphic, or the video once public/videos/nullify-demo.mp4 ships */}
+      <DemoSection />
 
       {/* How it works */}
       <section className="mx-auto w-full max-w-6xl px-6 py-20">
